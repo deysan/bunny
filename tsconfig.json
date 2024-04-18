@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ]
+    },
+    "types": [
+      "bun-types" // add Bun global
+    ],
     // Enable latest features
     "lib": [
       "ESNext",

@@ -4,7 +4,9 @@
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/react-dom": "^18.2.25"
+    "@types/react-dom": "^18.2.25",
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -14,6 +16,9 @@
     "react-dom": "19.0.0-canary-36e62c603-20240418"
   },
   "scripts": {
-    "dev": "bun --watch index.ts"
+    "tw": "tailwindcss  --watch -i ./global.css -o ./.build/global.css",
+    "start": "bun --watch --hot server.tsx",
+    "clear": "rm -rf ./.build",
+    "dev": "bun clear && concurrently \"bun:tw\" \"bun:start\""
   }
 }
